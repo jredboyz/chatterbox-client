@@ -3,11 +3,24 @@
 // with and manipulate the data.
 
 var Messages = {
-
   // TODO: Define how you want to store your messages.
-  _data: null,
+  // store messages from fetch
+  _data: {},
+
+
 
   // TODO: Define methods which allow you to retrieve from,
   // add to, and generally interact with the messages.
+  retrieve: function (data) {
+    for (let i = 0; i < data.length; i++) {
+      Messages._data[data[i]['message_id']] = data[i];
+    }
+    console.log(Messages._data, 'data');
+  },
+
+  add: function () {
+
+  },
+
 
 };
