@@ -14,20 +14,26 @@ var App = {
 
     FormView.initialize();
     RoomsView.initialize();
-    MessagesView.initialize();
+    // MessagesView.initialize();
 
     // Fetch initial batch of messages
     App.startSpinner();
     App.fetch(App.stopSpinner);
 
+
+
     // TODO: Make sure the app loads data from the API
     // continually, instead of just once at the start.
+    setInterval(function() {
+      $('#chats').html('');
+      // App.fetch(App.stopSpinner);
+      MessagesView.initialize();
+    }, 5000);
   },
 
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
       // examine the response from the server request:
-      console.log(data);
       Messages.retrieve(data);
       callback();
       // return data;

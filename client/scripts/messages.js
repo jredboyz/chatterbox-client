@@ -15,11 +15,17 @@ var Messages = {
     for (let i = 0; i < data.length; i++) {
       Messages._data[data[i]['message_id']] = data[i];
     }
-    console.log(Messages._data, 'data');
+    MessagesView.initialize();
+    // console.log(Messages._data);
   },
-
-  add: function () {
-
+  add: function (inputMessage) {
+    var message = {
+      username: App.username,
+      text: inputMessage,
+      roomname: 'lobby'
+    };
+    console.log(inputMessage);
+    Parse.create(message, MessagesView.initialize);
   },
 
 

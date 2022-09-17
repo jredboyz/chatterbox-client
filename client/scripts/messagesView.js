@@ -4,35 +4,49 @@
 var MessagesView = {
 
   $chats: $('#chats'),
-  $text: $('#text'),
+  $chat: $('.chat'),
+  $username: $('.username'),
+  $text: $('.text'),
+  $this: $(this),
+
+  clickUsername: function () {
+    MessagesView.$chats.on('click', '.username', function () {
+      MessagesView.handleClick($(this).text());
+    });
+  },
 
   initialize: function() {
     // TODO: Perform any work which needs to be done
     // when this view loads.
-    // MessagesView.$chats.
+    MessagesView.render();
+    // MessagesView.$chats.on('click', '.chat', MessagesView.handleClick, function () {
+    //   console.log($(this).text());
+    // });
+
   },
 
   render: function() {
     // TODO: Render _all_ the messages.
-    //use renderMessage
     for (var key in Messages._data) {
-      renderMessage(Messages._data[key]);
+      MessagesView.renderMessage(Messages._data[key]);
     }
   },
 
   renderMessage: function(message) {
-    // let $message = $('message');
-    // console.log($message, message)
     // TODO: Render a single message.
     var html = MessageView.render(message);
-    // console.log(message);
-    console.log (typeof html);
-    MessagesView.$chats.append(JSON.stringify(html));
+    // MessageView.$username.on('click', MessagesView.handleClick);
+    MessagesView.$chats.append(html);
   },
 
   handleClick: function(event) {
+    Friends.add(event);
+    console.log('clicked');
     // TODO: handle a user clicking on a message
     // (this should add the sender to the user's friend list).
+
   }
 
 };
+
+MessagesView.clickUsername();
