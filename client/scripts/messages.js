@@ -24,7 +24,6 @@ var Messages = {
       text: inputMessage,
       roomname: 'lobby'
     };
-    console.log(inputMessage);
     Parse.create(message, MessagesView.initialize);
   },
 

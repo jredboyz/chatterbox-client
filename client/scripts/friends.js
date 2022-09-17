@@ -17,8 +17,7 @@ var Friends = {
     console.log(Friends._data, 'added');
   },
 
-  toggleStatus: function () {
-
+  toggle: function () {
   }
 
 };

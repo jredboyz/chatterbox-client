@@ -26,7 +26,7 @@ var App = {
     // continually, instead of just once at the start.
     setInterval(function() {
       $('#chats').html('');
-      // App.fetch(App.stopSpinner);
+      App.fetch(App.stopSpinner);
       MessagesView.initialize();
     }, 5000);
   },
